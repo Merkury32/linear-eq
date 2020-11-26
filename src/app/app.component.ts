@@ -10,12 +10,12 @@ export class AppComponent {
   @ViewChild(EntryComponent) entryComponent: EntryComponent;
   ngOnInit() {}
 
+  nRowsArr: number[];
+  mColArr: number[];
+
   test() {
-    let entryObj = this.entryComponent.readMatrix();
-
-    let nMatrix = entryObj.nMatrix;
-    let mMatrix = entryObj.mMatrix;
-
-    console.log(nMatrix, mMatrix);
+    let entryArr = this.entryComponent.readMatrix();
+    this.nRowsArr = entryArr[0];
+    this.mColArr = entryArr[1];
   }
 }

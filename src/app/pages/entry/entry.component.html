@@ -1,9 +1,7 @@
-<form #entryForm="ngForm" (ngSubmit)="readMatrix()">
+<form #entryForm="ngForm">
   <label for="nMatrix">Wiersze N:</label>
   <input ngModel type="text" name="nMatrix" id="nMatrix">
 
   <label for="mMatrix">Kolumny M:</label>
   <input ngModel type="text" name="mMatrix" id="mMatrix">
-
-  <button type="submit">Submit</button>
 </form>
