@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, NgForm } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-entry',
@@ -7,11 +6,14 @@ import { FormControl, NgForm } from '@angular/forms';
   styleUrls: ['./entry.component.scss'],
 })
 export class EntryComponent implements OnInit {
+  @ViewChild('entryForm') entryForm: EntryComponent;
+
   constructor() {}
 
   ngOnInit(): void {}
 
-  readMatrix(form: NgForm) {
-    console.log(form.value.nMatrix);
+  readMatrix() {
+    let matrixObj = this.entryForm.value;
+    return matrixObj;
   }
 }
