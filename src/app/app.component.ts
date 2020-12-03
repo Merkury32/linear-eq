@@ -1,21 +1,18 @@
-import { Component, ViewChild } from '@angular/core';
-import { EntryComponent } from './pages/entry/entry.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ReadMatrixComponent } from './pages/read-matrix/read-matrix.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  @ViewChild(EntryComponent) entryComponent: EntryComponent;
+export class AppComponent implements OnInit{
+  @ViewChild('readComponent') readComponent: ReadMatrixComponent;
+
   ngOnInit() {}
 
-  nRowsArr: number[];
-  mColArr: number[];
-
-  test() {
-    let entryArr = this.entryComponent.readMatrix();
-    this.nRowsArr = entryArr[0];
-    this.mColArr = entryArr[1];
+  readMatrixCall(event) {
+    this.readComponent.writeInputs(event);
   }
+
 }

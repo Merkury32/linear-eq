@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-entry',
@@ -7,6 +7,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class EntryComponent implements OnInit {
   @ViewChild('entryForm') entryForm: EntryComponent;
+  @Output() readMatrixCall = new EventEmitter<number[][]>();
+
   value: any;
 
   constructor() {}
@@ -31,6 +33,6 @@ export class EntryComponent implements OnInit {
     let matrixArr = [nRowsTab, mColTab];
     console.log(matrixArr);
 
-    return matrixArr;
+    this.readMatrixCall.emit(matrixArr);
   }
 }
